@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Edward's Simple Army Editor - Help</title>
+  </head>
+  <body>
+    <h1>
+      How to use the Army Editor
+    </h1>
+    <p>
+      The army editor is entirely controlled by typing text in the editor box on the left side of the page. As you type, it 
+      interprets the text and formats the army list on the right side of the page.
+    </p>
+    <p>
+      It <em>doesn't</em> know the rules, units or points costs of your game - you have to type those in.
+    </p>
+    <h2>
+      Indentation
+    </h2>
+    <p>
+      Indentation, that is the number of spaces at the start of each line, controls how each line is interpreted.
+    </p>
+    <dl>
+      <dt>No spaces</dt>
+      <dd>Detachment (e.g. Battalion). The editor doesn't have any knowledge of what detachments are - you need to type the name.</dd>
+      <dt>1 space</dt>
+      <dd>Battlefield roles (e.g. Heavy Support). Again, the editor doesn't know what roles are - you need to type the name.</dd>
+      <dt>2 spaces</dt>
+      <dd>Unit (e.g. Tactical Squad). You need to type in the unit type, and you'll probably want to include points cost and number of models (see below).</dd>
+      <dt>3 spaces</dt>
+      <dd>Unit option (e.g. Flamer). You need to type in what the option is, and you'll probably want to include points cost and number taken.</dd>
+      <dt>4+ spaces</dt>
+      <dd>Now you're entering into the unknown!</dd>
+    </dl>
+    <h2>
+      Points costs
+    </h2>
+    <p>
+      You can include a points value in any line by typing a number inside square brackets. (Normally you would only do this on unit or option lines)
+    </p>
+    <p>
+      You can include a multiplier in a line by typing 'x' followed by a number. This would indicate the number of models or options taken. This only makes
+      sense on a line with a points value in it!
+    </p>
+    <p>
+      Example:
+      <pre>
+  Infantry Squad [7] x5
+   Flamethrower [12]
+      </pre>
+      This describes an Infantry Squad. It has 5 models costing 7 points each, plus 1 Flamethrower which costs 12 points.
+    </p>
+    <p>
+      The army editor finds all the points costs in your list, multiplies and adds them up, and displays totals as you type.
+  </p>
+  <h2>
+    Headers
+  </h2>
+  <p>
+    A line which starts with some number of '#' characters is turned into a heading. You can put one anywhere but it mostly only makes sense at the 
+    top of the list. The heading size depends on the number of '#'.
+  </p>
+  <h2>
+    Annotations
+  </h2>
+  <p>
+    A line which contains a ':' is turned into italic text. This is useful for adding notes to detachments or units. 
+  </p>
+  <h2>
+    <em>Advanced</em> - Styling
+  </h2>
+  <p>
+    You can add custom CSS formatting to your roster. Start a line with '!' followed by a selector and rules in curly brackets. Due to limitations
+    of the editor (or laziness on my part) each selector + rules must be on a single line.
+  </p>
+  <p>
+    Rules are automatically scoped to only apply to the display/print parts of the editor.
+  </p>
+  <p>
+    For example, these rules will attempt to put detachments in two columns:
+    <pre>
+! .detachment { width: 49%; float: left; }
+! .totalrow {clear: both; width: 98%; }
+! .detachment.drop1 {margin-top:0;}
+    </pre>
+  </p>
+  <h1>
+    Printing
+  </h1>
+  <p>
+    Use the 'print' command on your browser to print the roster. It will only print the formatted display, not the editor. I like to adjust the 
+    scaling in my print options to fit the list neatly onto pages.
+  </p>
+  <h1>
+    Saving and Loading
+  </h1>
+  <p>
+    The army editor uses local storage in the browser to remember the list you're working on. If you come back to the page it will show the last list you
+    were in.
+  </p>
+  <p>
+    To save a list outside of the browser, select all of the text in the editor, copy it, and paste it into a text file on your computer.
+  </p>
+  <p>
+    Similarly to load a list, copy all the text from a text file you saved previously, and paste it into the army editor.
+  </p>
+  </body>
+</html>

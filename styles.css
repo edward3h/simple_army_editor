@@ -1,0 +1,107 @@
+div#main {
+  font-family: serif;
+}
+
+#sidebar {
+  width: 30%;
+  height: 100%;
+  float: left;
+  border-right: solid thin black;
+  position: fixed;
+}
+
+.CodeMirror {
+  height: calc(100% - 7em) !important;
+}
+
+#help {
+  line-height: 2em;
+  text-align: center;
+}
+
+#result {
+  width: 68%;
+  float: right;
+  height: auto;
+  padding-right: 1.2em;
+}
+
+.drop1 {
+  margin-top: 0.5em;
+}
+
+.row {
+  padding: 2px;
+}
+
+.unit {
+  font-size: 16px;
+}
+
+.category {
+  font-size: 18px;
+}
+
+.detachment {
+  font-size: 20px;
+}
+
+.category, .unit, .option {
+  margin-left: 1.4em;
+}
+
+.unit, .totalrow {
+  position: relative;
+}
+
+.unit:nth-child(even) {
+  background-color: #DDD;
+}
+
+.unit:nth-child(odd) {
+  background-color: #FFF;
+}
+
+.detachment .sumtotal {
+  display: none;
+}
+
+.unit .sumtotal {
+  display: inline;
+}
+
+.unit .inner {
+  display: flex;
+  flex-direction: row;
+}
+
+.inner .text {
+  flex-grow: 1;
+}
+
+.inner .total, .inner .sumtotal {
+  flex-basis: 40px;
+  text-align: right;
+}
+
+.totalrow {
+  margin-right: 4px;
+}
+
+.annotation {
+  font-style: italic;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
+
+@media print {
+  #sidebar {
+    display: none;
+  }
+  #result {
+    width: 90%;
+  }
+}
