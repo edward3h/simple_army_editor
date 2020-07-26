@@ -80,6 +80,7 @@ div#main {
   font-weight: bold;
   font-size: larger;
   margin-top: 1em;
+  border-top: thin solid black;
 }
 
 .unit, .totalrow {
