@@ -1,13 +1,25 @@
 div#main {
-  font-family: serif;
+  font-family: 'Fira Mono', monospace;
+  display: grid;
+  grid-template-columns: 33% auto 1fr;
+  grid-template-rows: auto;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+#sidebar-title {
+  grid-row-start: 1;
+  grid-column-end: span 1;
+  padding: 1em;
+  font-weight: bold;
+  font-size: larger;
 }
 
 #sidebar {
-  width: 30%;
-  height: 100%;
-  float: left;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: span 1;
   border-right: solid thin black;
-  position: fixed;
 }
 
 .CodeMirror {
@@ -15,15 +27,18 @@ div#main {
 }
 
 #help {
+  grid-row-start: 2;
+  grid-row-end: 1;
   line-height: 2em;
   text-align: center;
 }
 
 #result {
-  width: 68%;
-  float: right;
-  height: auto;
-  padding-right: 1.2em;
+  padding: 2em;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 2;
+  align-self: start;
 }
 
 .drop1 {
@@ -31,23 +46,40 @@ div#main {
 }
 
 .row {
-  padding: 2px;
+  padding: 0.2em;
 }
 
 .unit {
-  font-size: 16px;
+  font-size: smaller;
 }
 
 .category {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .detachment {
-  font-size: 20px;
+  font-size: larger;
 }
 
 .category, .unit, .option {
   margin-left: 1.4em;
+}
+
+.sumtotal {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.total {
+  float: right;
+  font-weight: bold;
+  margin-left: 2em;
+}
+
+.totalrow {
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 1em;
 }
 
 .unit, .totalrow {
@@ -84,10 +116,6 @@ div#main {
   text-align: right;
 }
 
-.totalrow {
-  margin-right: 4px;
-}
-
 .annotation {
   font-style: italic;
 }
@@ -95,10 +123,21 @@ div#main {
 .footer {
   font-size: 12px;
   text-align: center;
+  margin-top: 5em;
+  grid-column-start: 2;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 1;
 }
 
 @media print {
+  div#main {
+    display: inline;
+  }
   #sidebar {
+    display: none;
+  }
+  #sidebar-title {
     display: none;
   }
   #result {
