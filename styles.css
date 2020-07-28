@@ -1,7 +1,10 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 div#main {
-  font-family: 'Fira Mono', monospace;
   display: grid;
-  grid-template-columns: 33% auto 1fr;
+  grid-template-columns: 33% auto 25%;
   grid-template-rows: auto;
   column-gap: 1em;
   row-gap: 1em;
@@ -20,6 +23,15 @@ div#main {
   grid-column-start: 1;
   grid-column-end: span 1;
   border-right: solid thin black;
+}
+
+#customizer {
+  border-left: solid thin black;
+  grid-row-start: 2;
+  grid-column-start: 3;
+  align-self: right;
+  margin-top: 2.5em;
+  padding: 2.5em;
 }
 
 .CodeMirror {
@@ -121,6 +133,14 @@ div#main {
   font-style: italic;
 }
 
+.select-title {
+  font-weight: bold;
+}
+
+.link {
+  margin: 1em;
+}
+
 .footer {
   font-size: 12px;
   text-align: center;
@@ -143,5 +163,8 @@ div#main {
   }
   #result {
     width: 90%;
+  }
+  #customizer {
+    display: none;
   }
 }

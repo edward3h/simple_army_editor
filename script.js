@@ -13,7 +13,7 @@ var state = function() {
   var indents = [];
   var total = 0;
   var lastLevel = {};
-  
+
   return {
     addIndent: function(newIndent) {
       if(!indents.includes(newIndent)) {
@@ -73,7 +73,7 @@ function parseCosts(line) {
       line.cost = cost;
       line.multiplier = 1;
       line.total = cost;
-      
+
       var mult = line.text.match(MULTIPLIER);
       if(mult && mult.length > 1) {
         var multiplier = parseInt(mult[1], 10);
@@ -82,7 +82,7 @@ function parseCosts(line) {
           line.total = cost * multiplier;
         }
       }
-      
+
       state.addTotal(line.total);
     }
   }
@@ -106,7 +106,7 @@ function parseLine(lines, text) {
     line.style = true;
     line.text = styleMatch[1];
   }
-  
+
   lines.push(line);
   var parent = state.getParent(indents);
   console.log("parent", indents, parent);
@@ -130,7 +130,7 @@ function sumTotal(line) {
 }
 
 function renderLine(line, klass) {
-  var annotation = line.text.match(ANNOTATION); 
+  var annotation = line.text.match(ANNOTATION);
   var spanclass = annotation ? "annotation text" : "text";
   var r = "<div class=\"" + klass + "\"><div class=\"inner\"><span class=\"" + spanclass + "\">" +
     line.text + "</span>";
@@ -210,7 +210,7 @@ window.onload = function () {
   });
   var result = document.getElementById('result');
   var timer;
-  
+
   function wrapper2() {
     textChange(cm, result);
     if (typeof(Storage) !== "undefined") {
@@ -218,15 +218,22 @@ window.onload = function () {
       localStorage.setItem("roster", source.value);
     }
   }
-  
+
   function wrapper() {
     clearTimeout(timer);
     timer = setTimeout(wrapper2, 500);
   }
-  
+
   cm.on('change', wrapper);
   if(loaded) {
     wrapper2();
   }
-  
+
+  const fontSelectElement = document.getElementById('font-selector');
+
+  fontSelectElement.addEventListener('change', (event) => {
+    const fontFamilyValue = event.target.value
+    document.body.style.fontFamily = fontFamilyValue;
+  });
 }
+
