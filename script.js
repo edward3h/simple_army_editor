@@ -197,6 +197,17 @@ function textChange(cm, target) {
   target.innerHTML = outputText;
 }
 
+function setSelection(selectId, optionSelection){
+  const selectElement = document.getElementById(selectId);
+  const selectOptions = selectElement.options;
+  for (var option, index = 0; option = selectOptions[index]; index++) {
+    if (option.value == optionSelection) {
+      selectElement.selectedIndex = index;
+      break;
+    }
+  }
+}
+
 window.onload = function () {
   var source = document.getElementById('source');
   var loaded = false;
@@ -230,10 +241,21 @@ window.onload = function () {
   }
 
   const fontSelectElement = document.getElementById('font-selector');
-
   fontSelectElement.addEventListener('change', (event) => {
     const fontFamilyValue = event.target.value
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem("font-selection", fontFamilyValue);
+    }
     document.body.style.fontFamily = fontFamilyValue;
   });
+
+  // set the font from last time it was selected
+  if (typeof(Storage) !== "undefined") {
+    const savedFontFamily = localStorage.getItem("font-selection");
+    if (savedFontFamily !== null) {
+      setSelection("font-selector", savedFontFamily);
+      document.body.style.fontFamily = savedFontFamily;
+    }
+  }
 }
 
