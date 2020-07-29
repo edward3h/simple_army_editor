@@ -8,49 +8,59 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.js"></script>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">            
+     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Fira+Mono:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="/script.js"></script>
   </head>
   <body>
     <div id="main">
+      <div id="sidebar-title">
+        Edward's Simple Army Editor
+      </div>
       <div id="sidebar">
-        <div id="innertitle">
-          Edward's Simple Army Editor
-        </div>
         <textarea id="source">
-# Example Army
+          # Example Army
 
-Big Detachment
- Command points: 3
- Leaders
-  Officer [15]
-   Warlord: Inspirational
-   Pistol [1]
-  Standard Bearer [10]
- Squads
-  Infantrymen [2] x20
-  Infantrymen [2] x20
- Support
-  Horse-drawn Artillery [20]
-   Crewmen [2] x3
- 
-Small Detachment
- Leaders
-  Officer [15]
-   Sabre [3]
- Squads
-  Skirmishers [3] x5
-   Rifles [1] x5          
+          Big Detachment
+          Command points: 3
+          Leaders
+          Officer [15]
+          Warlord: Inspirational
+          Pistol [1]
+          Standard Bearer [10]
+          Squads
+          Infantrymen [2] x20
+          Infantrymen [2] x20
+          Support
+          Horse-drawn Artillery [20]
+          Crewmen [2] x3
+
+          Small Detachment
+          Leaders
+          Officer [15]
+          Sabre [3]
+          Squads
+          Skirmishers [3] x5
+          Rifles [1] x5
         </textarea>
         <div id="help">
-          <a href="help.html" target="_blank">Open help page</a>
+          <span class="link"> <a href="help.html" target="_blank">Open help page</a> </span>
+          <span class="link"> <a href="https://github.com/edward3h/simple_army_editor" target="_blank"> Open in Github </a> </span>
         </div>
       </div>
-      <div id="result">
-        
+
+      <div id="result"> </div>
+      <div id="customizer">
+        <span class="select-title"> Font Style: </span>
+        <select id="font-selector">
+          <option value="Open Sans, sens-serif"> San-serif </option>
+          <option value="Noto Serif, serif"> Serif </option>
+          <option value="Fira Mono, monospace"> Monospace </option>
+          <option value="Comic Neue, cursive"> Comic </option>
+        </select>
       </div>
     </div>
   </body>
