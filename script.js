@@ -2,7 +2,7 @@ console.log('hi');
 
 var BLANK = /^\s*$/;
 var INDENTS = /^\s*/;
-var POINTS = /\s\[\s*(\d+)\s*\]/;
+var POINTS = /\s\[\s*(-?\d+)\s*\]/;
 var MULTIPLIER = /\s[x*]\s*(\d+)/;
 var ANNOTATION = /.+\:.+/;
 var HEADER = /^\s*(\#+)(.+)/;
@@ -134,10 +134,8 @@ function renderLine(line, klass) {
   var spanclass = annotation ? "annotation text" : "text";
   var r = "<div class=\"" + klass + "\"><div class=\"inner\"><span class=\"" + spanclass + "\">" +
     line.text + "</span>";
-  if(line.total && line.total > 0) {
-    r += "<span class=\"total\">" + line.total + "</span>";
-    r += "<span class=\"sumtotal\">" + (klass.includes("unit") ? sumTotal(line) : '') + "</span>";
-  }
+    r += "<span class=\"total\">" + (line.total ? line.total : '') + "</span>";
+    r += "<span class=\"sumtotal\">" + (!klass.includes("option") ? sumTotal(line) : '') + "</span>";
   r += "</div>";
   return r;
 }

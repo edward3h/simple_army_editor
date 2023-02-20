@@ -4,8 +4,8 @@ body {
 
 div#main {
   display: grid;
-  grid-template-columns: 33% auto 25%;
-  grid-template-rows: auto;
+  grid-template-columns: 33% auto;
+  grid-template-rows: max-content minmax(300px, 1fr) repeat(2, max-content);
   column-gap: 1em;
   row-gap: 1em;
 }
@@ -18,29 +18,23 @@ div#main {
   font-size: larger;
 }
 
-#sidebar {
+/* #source {
   grid-row-start: 2;
   grid-column-start: 1;
-  grid-column-end: span 1;
-  border-right: solid thin black;
-}
+} */
 
 #customizer {
-  border-left: solid thin black;
-  grid-row-start: 2;
-  grid-column-start: 3;
-  align-self: right;
-  margin-top: 2.5em;
-  padding: 2.5em;
+  padding: 20px;
+  grid-column-start: 1;
 }
 
 .CodeMirror {
-  height: calc(100% - 7em) !important;
+  height: 100% !important;
+  grid-column-start: 1;
 }
 
 #help {
-  grid-row-start: 2;
-  grid-row-end: 1;
+  grid-column-start: 1;
   line-height: 2em;
   text-align: center;
 }
@@ -48,9 +42,10 @@ div#main {
 #result {
   padding: 2em;
   grid-column-start: 2;
-  grid-column-end: span 1;
-  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-row-start: 1;
   align-self: start;
+  border-left: thin solid black;
 }
 
 .drop1 {
@@ -58,7 +53,7 @@ div#main {
 }
 
 .row {
-  padding: 0.2em;
+  padding: 4px 0 4px 4px;
 }
 
 .unit {
@@ -79,7 +74,7 @@ div#main {
 
 .sumtotal {
   font-weight: bold;
-  font-size: larger;
+  font-size: 15px;
 }
 
 .total {
@@ -107,15 +102,15 @@ div#main {
   background-color: #FFF;
 }
 
-.detachment .sumtotal {
+/* .detachment .sumtotal {
   display: none;
 }
 
 .unit .sumtotal {
   display: inline;
-}
+} */
 
-.unit .inner {
+.inner {
   display: flex;
   flex-direction: row;
 }
@@ -155,16 +150,11 @@ div#main {
   div#main {
     display: inline;
   }
-  #sidebar {
-    display: none;
-  }
-  #sidebar-title {
+  #sidebar-title, .CodeMirror, #customizer, #help {
     display: none;
   }
   #result {
     width: 90%;
-  }
-  #customizer {
-    display: none;
+    border: none;
   }
 }
